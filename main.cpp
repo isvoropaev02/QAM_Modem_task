@@ -1,9 +1,3 @@
-#include <vector>
-#include <iostream>
-#include <fstream>
-#include <cmath>
-#include <random>
-#include <stdexcept>
 #include "QAM_Modem.hpp"
 using namespace std;
 
@@ -14,7 +8,7 @@ vector<int> transmitt_bits(vector<int> &message, Modulator mod, double var)
     if (len_mes % 2 == 0 && len_mes % 4 == 0 && len_mes % 6 == 0)
     {
         // использование модулятора
-        vector<vector<double>> modulated_signal = mod.modulate(message); // вектор с элементами I и Q
+        vector<vector<double>> modulated_signal = mod.modulate(message); //вектор с элементами I и Q (не собираются в комплексное число)
         // добавление шума
         AWGN noise(var);
         noise.add_noise(modulated_signal);
