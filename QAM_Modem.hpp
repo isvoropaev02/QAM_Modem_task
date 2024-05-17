@@ -91,7 +91,6 @@ public:
             signal[i][0] += distribution(generator);
             // distribution.reset();
             signal[i][1] += distribution(generator);
-            // distribution.reset();
         }
     }
 };
@@ -142,7 +141,6 @@ private:
 
     vector <vector<int>> denoise_signal(vector<vector<double>> &signal)
     {
-        // vector <vector<double>> result(signal.size(), vector<double>(2, 0));
         vector <vector<int>> denoised_signal(signal.size(), vector<int>(2, 0));
         for (size_t i = 0; i < signal.size(); i++)
         {
@@ -162,7 +160,6 @@ public:
     vector<int> demodulate(vector<vector<double>> &signal)
     {
         vector <vector<int>> denoised_sig = denoise_signal(signal);
-        //print_qam_vector(denoised_sig);
         unsigned int m = int(log2(this->order)/2);
         vector<int> result(2 * m * denoised_sig.size(), 0);
         vector<int> tempQ;
